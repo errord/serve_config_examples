@@ -25,7 +25,8 @@ class APIIngress:
 
         image_ref = await self.handle.generate.remote(prompt, img_size=img_size)
         print('image_ref: {}'.format(image_ref))
-        image = await image_ref
+        #image = await image_ref
+        image = image_ref
         file_stream = BytesIO()
         image.save(file_stream, "PNG")
         return Response(content=file_stream.getvalue(), media_type="image/png")
